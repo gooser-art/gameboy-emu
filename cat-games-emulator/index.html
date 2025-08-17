@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Games Emulator</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/emulator.css">
+    <link rel="stylesheet" href="css/game-selector.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Cat Games" class="logo-img">
+                <h1>Cat Games</h1>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Search games..." id="searchInput">
+                <span class="material-icons">search</span>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="#" class="nav-item active" data-category="all">
+                    <span class="material-icons">home</span>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item" data-category="favorites">
+                    <span class="material-icons">favorite_border</span>
+                    <span>Favorites</span>
+                </a>
+                <a href="#" class="nav-item" data-category="recent">
+                    <span class="material-icons">schedule</span>
+                    <span>Recently Played</span>
+                </a>
+            </nav>
+            
+            <div class="categories">
+                <h3>Categories</h3>
+                <a href="#" class="category-item" data-category="action">
+                    <span class="material-icons">sports_esports</span>
+                    <span>Action</span>
+                </a>
+                <a href="#" class="category-item" data-category="adventure">
+                    <span class="material-icons">explore</span>
+                    <span>Adventure</span>
+                </a>
+                <a href="#" class="category-item" data-category="puzzle">
+                    <span class="material-icons">extension</span>
+                    <span>Puzzle</span>
+                </a>
+                <a href="#" class="category-item" data-category="arcade">
+                    <span class="material-icons">videogame_asset</span>
+                    <span>Arcade</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="breadcrumbs">
+                    <span>Home</span>
+                    <span class="material-icons">chevron_right</span>
+                    <span id="current-category">All Games</span>
+                </div>
+                <div class="user-controls">
+                    <button id="fullscreen-btn" class="icon-btn" title="Toggle Fullscreen">
+                        <span class="material-icons">fullscreen</span>
+                    </button>
+                    <button id="settings-btn" class="icon-btn" title="Settings">
+                        <span class="material-icons">settings</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Game Grid -->
+            <section id="menu" class="games-grid" aria-label="Cat games">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading games...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Game Player (initially hidden) -->
+    <div id="player" class="player hidden">
+        <div class="player-header">
+            <button id="back-button" class="back-button">
+                <span class="material-icons">arrow_back</span>
+                <span>Back to Library</span>
+            </button>
+            <div class="player-title" id="player-title"></div>
+            <div class="player-controls">
+                <button id="save-state-btn" class="icon-btn" title="Save State">
+                    <span class="material-icons">save</span>
+                </button>
+                <button id="load-state-btn" class="icon-btn" title="Load State">
+                    <span class="material-icons">restore</span>
+                </button>
+                <button id="screenshot-btn" class="icon-btn" title="Take Screenshot">
+                    <span class="material-icons">photo_camera</span>
+                </button>
+                <button id="fullscreen-game-btn" class="icon-btn" title="Fullscreen">
+                    <span class="material-icons">fullscreen</span>
+                </button>
+            </div>
+        </div>
+        <div class="player-frame-wrap">
+            <div id="game-overlay" class="game-overlay hidden">
+                <div class="overlay-content">
+                    <h3>Game Paused</h3>   
+                    <div class="overlay-buttons">
+                        <button id="resume-btn" class="btn primary">
+                            <span class="material-icons">play_arrow</span>
+                            Resume
+                        </button>
+                        <button id="restart-btn" class="btn">
+                            <span class="material-icons">replay</span>
+                            Restart
+                        </button>
+                        <button id="quit-btn" class="btn">
+                            <span class="material-icons">exit_to_app</span>
+                            Quit
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <iframe id="game-frame" title="Game frame" src="about:blank" allowfullscreen loading="eager"></iframe>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="js/emulator-core.js"></script>
+    <script src="js/save-system.js"></script>
+    <script src="js/game-loader.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

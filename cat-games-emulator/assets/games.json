@@ -1,0 +1,60 @@
+[
+  {
+    "id": "whack-a-cat-master",
+    "title": "Whack A Cat",
+    "type": "url",
+    "entry": "http://localhost:3000/",
+    "note": "Run npm install && npm start inside whack-a-cat-master",
+    "cover": "https://placekitten.com/350/220"
+  },
+  {
+    "id": "phaser-cat-master",
+    "title": "Phaser Cat",
+    "type": "html",
+    "entry": "../phaser-cat-master/game/index.html",
+    "cover": "https://placekitten.com/351/220"
+  },
+  {
+    "id": "pet-the-catto-master",
+    "title": "Pet The Catto",
+    "type": "html",
+    "entry": "../pet-the-catto-master/index.html",
+    "cover": "https://placekitten.com/352/220"
+  },
+  {
+    "id": "meomatch-main",
+    "title": "Meo Match",
+    "type": "url",
+    "entry": "http://localhost:5173/",
+    "note": "Run npm install && npm run dev inside meomatch-main (Vite default port 5173)",
+    "cover": "https://placekitten.com/353/220"
+  },
+  {
+    "id": "circle-the-cat-master",
+    "title": "Circle The Cat",
+    "type": "html",
+    "entry": "../circle-the-cat-master/index.html",
+    "cover": "https://placekitten.com/354/220"
+  },
+  {
+    "id": "catmario-master",
+    "title": "Cat Mario",
+    "type": "html",
+    "entry": "../catmario-master/docs/index.htm",
+    "cover": "https://placekitten.com/355/220"
+  },
+  {
+    "id": "Cat-HTML5-Game-main",
+    "title": "Cat HTML5 Game",
+    "type": "html",
+    "entry": "../Cat-HTML5-Game-main/Cat/index.html",
+    "cover": "https://placekitten.com/356/220"
+  },
+  {
+    "id": "catch-the-cat-game-main",
+    "title": "Catch The Cat",
+    "type": "html",
+    "entry": "../catch-the-cat-game-main/index.html",
+    "cover": "https://placekitten.com/357/220"
+  }
+]
