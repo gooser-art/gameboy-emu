@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="#" />
+
+
+  <title>petto the catto</title>
+</head>
+
+<body>
+  <div class="title">
+    <h1>PET THE CATTO</h1>
+  </div>
+
+  <div class="start-screen">
+    <label for="chonks">Choose your chonk:</label>
+      <select name="chonks" id="chonks">
+        <option value="baby kitty">baby kitty</option>
+        <option value="catto">Catto</option>
+        <option value="chonk">CHONK</option>
+      </select>
+      
+      <h4>Click on a chonk to find out more:</h4>
+      <div class="img-wrapper">
+        <img class="cat-thumbnail" id="baby" src="./img/baby.png" alt="baby kitty">
+        <img class="cat-thumbnail" id="catto" src="./img/catto.png" alt="catto">
+        <img class="cat-thumbnail" id="chonk" src="./img/chonk.png" alt="chonk">
+      </div>
+        
+      <h4>Whomst you be?</h4>
+      <label for="names">Hooman 1:</label>
+        <input type="text" value="Baby Girl Lisa" id="p1-name" placeholder="Baby Girl Lisa">
+      <label for="names">Hooman 2:</label>
+        <input type="text" value="Big Ed" id="p2-name" placeholder="Big Ed">
+    <button id="load-btn" onclick="loadGame()"><i class="fa fa-paw"></i> Start Game</button>
+    </div>
+
+  <div class="grid-container">
+    <div class="score-text">
+      <div id="score">
+        <p><b>CURRENT SCORE</b></p>
+        <p id="p1-score"></p>
+        <p id="p2-score"></p>
+      </div> 
+    </div>
+
+    <div id="top-message">
+      <div id="players"></div>
+    </div>
+  
+    <div id="kitty">
+      <div class="ears">
+        <div id="left-ear""></div> 
+        <div id="right-ear"></div>
+      </div>
+      
+      <div id="head"></div>
+    
+        <div id="left-eye"></div>
+        <div id="right-eye"></div>
+    
+        <div id="nose"></div>
+        <div id="mouth-left"></div>
+        <div id="mouth-right"></div>
+
+    </div>
+  
+    <div id="bottom-message">
+      <div id="result"></div>
+
+      <button id="replay-btn" onclick="replayGame()"><i class="fa fa-retweet"></i> next round</button>
+      <button id="reset-btn" onclick="resetGame()"><i class="fa fa-gamepad"></i> new game</button>
+    </div>
+
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

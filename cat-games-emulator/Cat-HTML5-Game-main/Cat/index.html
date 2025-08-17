@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaii Cat HTML5</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            position: relative;
+        }
+
+        canvas {
+            display: none;
+            background-color: #e1f5fe;
+            border: 4px solid #ff80ab;
+            border-radius: 15px;
+        }
+
+        #introScreen, #gameOverMessage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            color: #ff4081;
+            background-color: #fff0f5;
+            padding: 30px;
+            border-radius: 20px;
+            border: 4px solid #ff80ab;
+            box-shadow: 0 0 20px rgba(255, 128, 171, 0.5);
+        }
+
+        #introScreen h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff4081;
+            text-shadow: 2px 2px 4px rgba(255, 128, 171, 0.5);
+        }
+
+        .menuButton {
+            padding: 12px 24px;
+            margin: 10px;
+            background-color: #ff80ab;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(255, 128, 171, 0.5);
+        }
+
+        .menuButton:hover {
+            background-color: #ff4081;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(255, 128, 171, 0.7);
+        }
+
+        #gameStatus {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff4081;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(255, 128, 171, 0.5);
+        }
+
+        #pauseButton {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #ff80ab;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 30px;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(255, 128, 171, 0.5);
+        }
+
+        #pauseButton:hover {
+            background-color: #ff4081;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(255, 128, 171, 0.7);
+        }
+
+        #gameOverMessage {
+            display: none;
+            background-color: #fff0f5;
+            border: 4px solid #ff80ab;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .kawaii-decoration {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+        }
+
+        #paw1 { top: 10px; left: 10px; }
+        #paw2 { top: 10px; right: 10px; }
+        #paw3 { bottom: 10px; left: 10px; }
+        #paw4 { bottom: 10px; right: 10px; }
+    </style>
+</head>
+<body>
+    <div id="introScreen">
+        <h1>Kawaii Cat Game</h1>
+        <button class="menuButton" id="newGameButton">New Game</button>
+        <button class="menuButton" id="difficultyButton">Difficulty</button>
+        <button class="menuButton" id="highScoresButton">High Scores</button>
+        <img src="paw.png" alt="Paw" class="kawaii-decoration" id="paw1">
+        <img src="paw.png" alt="Paw" class="kawaii-decoration" id="paw2">
+        <img src="paw.png" alt="Paw" class="kawaii-decoration" id="paw3">
+        <img src="paw.png" alt="Paw" class="kawaii-decoration" id="paw4">
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="gameStatus">Score: 0</div>
+    <button id="pauseButton">Pause</button>
+    <div id="gameOverMessage">
+        <p>Game Over! Your score: <span id="finalScore">0</span></p>
+        <button id="retryButton" class="menuButton">Try Again</button>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
