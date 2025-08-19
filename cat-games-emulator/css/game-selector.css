@@ -242,3 +242,4 @@
 .play-button:hover { filter: brightness(1.05); }
 .play-button:active { transform: translateY(1px); }
 .play-button:focus { outline: 2px solid transparent; box-shadow: 0 0 0 3px var(--ring); }
+ 

@@ -4,15 +4,15 @@ A modern web-based emulator for playing cat-themed HTML5 games in a unified inte
 
 ## Features
 
-- 🎮 Play multiple cat-themed HTML5 games from one place
-- 🎨 Modern, responsive UI with dark/light mode support
-- ⚡ Fast loading and smooth performance
-- 🔍 Search and filter games by title or category
-- ⭐ Mark games as favorites for quick access
-- 💾 Save/load game states (where supported by games)
-- 📸 Take screenshots of your gameplay
-- 🎮 Fullscreen mode for immersive gaming
-- 📱 Mobile-friendly design
+Play multiple cat-themed HTML5 games from one place
+-Modern, responsive UI with dark/light mode support
+ Fast loading and smooth performance
+ Search and filter games by title or category
+ Mark games as favorites for quick access
+ Save/load game states (where supported by games)
+
+- Fullscreen mode for immersive gaming
+ Mobile-friendly design
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ A modern web-based emulator for playing cat-themed HTML5 games in a unified inte
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/cat-games-emulator.git
+   git clone https://github.com/gooser-art/cat-games-emulator.git
    cd cat-games-emulator
    ```
 
