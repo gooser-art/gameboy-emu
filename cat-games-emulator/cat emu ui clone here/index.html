@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat‑Emu  – Cat Games Emulator</title>
+    <meta name="description" content="Cat‑Emu: a cozy, cat‑themed web app for browsing and launching cat games. Placeholder titles for now; real games coming soon!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="light">
+    <header class="site-header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cat logo">
+            <circle cx="32" cy="36" r="20" fill="#fff" opacity="0.9" />
+            <path d="M20 22 L26 12 L32 22" fill="#fff" opacity="0.9" />
+            <path d="M44 22 L38 12 L32 22" fill="#fff" opacity="0.9" />
+            <circle cx="25" cy="36" r="2.8" fill="#2a2a2a" />
+            <circle cx="39" cy="36" r="2.8" fill="#2a2a2a" />
+            <path d="M28 43 Q32 46 36 43" stroke="#2a2a2a" stroke-width="3" fill="none" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="titles">
+          <h1>Cat‑Emu</h1>
+          <p class="tagline">All cat games, one purr‑fect place</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">☀️</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="controls">
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="Search cat games…" autocomplete="off" />
+        </div>
+        <div class="filters" id="filters">
+          <!-- Populated by JS -->
+        </div>
+        <div class="sort">
+          <label for="sortSelect">Sort</label>
+          <select id="sortSelect">
+            <option value="name-asc">Name (A→Z)</option>
+            <option value="name-desc">Name (Z→A)</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+      </section>
+
+      <section>
+        <div id="grid" class="grid" aria-live="polite" aria-busy="false">
+          <!-- Cards injected by JS -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Made with 🐾 for cat lovers. Titles and links are placeholders for now.</p>
+    </footer>
+
+    <template id="cardTemplate">
+      <article class="card" data-genre="">
+        <div class="cover" aria-hidden="true">
+          <img class="cover-img" alt="" loading="lazy" />
+          <div class="cover-art">
+            <div class="ear ear-left"></div>
+            <div class="ear ear-right"></div>
+            <div class="face">
+              <div class="eyes"></div>
+              <div class="nose"></div>
+              <div class="whiskers"></div>
+            </div>
+          </div>
+        </div>
+        <div class="info">
+          <h3 class="title">
+            <a class="name-link" href="#" target="_blank" rel="noopener">Placeholder</a>
+          </h3>
+          <div class="meta">
+            <span class="badge genre">Genre</span>
+            <span class="badge year">2025</span>
+          </div>
+          <div class="actions-row">
+            <button class="btn play" data-action="preview">Preview</button>
+            <button class="btn ghost fav" aria-label="Toggle favorite" data-action="fav">♡</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <dialog id="previewDialog">
+      <div class="dialog-header">
+        <h4 id="dialogTitle">Preview</h4>
+        <button class="btn ghost close" data-action="close">✕</button>
+      </div>
+      <div class="dialog-body">
+        <p>This is a cozy preview area. When real games are added, an emulator or cloud stream can live here.</p>
+        <p>
+          For now, use the game <strong>name</strong> on each tile to open its placeholder link.
+        </p>
+      </div>
+      <div class="dialog-footer">
+        <button class="btn" data-action="close">Close</button>
+      </div>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
+
