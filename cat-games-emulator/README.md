@@ -21,25 +21,7 @@ Play multiple cat-themed HTML5 games from one place
 - A modern web browser (Chrome, Firefox, Safari, Edge)
 - Node.js and npm (for development)
 
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/gooser-art/cat-games-emulator.git
-   cd cat-games-emulator
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm start
-   ```
-
-4. Open your browser and navigate to `http://localhost:3000`
+## for installation just open the html file in the cat emu clone here file 
 
 ## Adding Games
 
