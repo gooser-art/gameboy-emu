@@ -25,29 +25,14 @@ const els = {
   search: document.getElementById("searchInput"),
   filters: document.getElementById("filters"),
   sort: document.getElementById("sortSelect"),
-  themeToggle: document.getElementById("themeToggle"),
-  previewDialog: document.getElementById("previewDialog"),
-  dialogTitle: document.getElementById("dialogTitle"),
+  
 };
 
 function saveFavorites() {
   localStorage.setItem("catemu:favs", JSON.stringify([...state.favorites]));
 }
 
-function getTheme() {
-  
-  return localStorage.getItem("catemu:theme") || "light";
-}
-
-function setTheme(theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("catemu:theme", theme);
-  els.themeToggle.textContent = theme === "dark" ? "🌙" : "☀️";
-}
-
-function toggleTheme() {
-  setTheme(getTheme() === "dark" ? "light" : "dark");
-}
+// Theme changing functionality removed
 
 function renderFilters() {
   els.filters.innerHTML = "";
@@ -109,33 +94,29 @@ function createCard(game, index) {
   });
 
   const previewBtn = node.querySelector('[data-action="preview"]');
-  previewBtn.addEventListener("click", () => openPreview(game));
+  previewBtn.addEventListener("click", () => {
+    window.open(game.url, "_blank", "noopener");
+  });
 
   return node;
 }
 
 
-function setCoverImage(game, coverEl, imgEl, uniqueIndex) {
-  // Force show the image immediately with a working cat image
-  const workingCatImages = [
-    "https://images.unsplash.com/photo-1514888284454-5d9a9e2c57b2?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800&h=600&fit=crop", 
-    "https://images.unsplash.com/photo-1543852786-1cf6624b3ddf?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1574158622682-e40e469810f7?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1557246565-8a3d3ab5d7f6?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1561948955-570b270e7c36?w=800&h=600&fit=crop"
-  ];
-  
-  
-  const catImage = workingCatImages[uniqueIndex % workingCatImages.length];
-  
-  
-  imgEl.src = catImage;
+function setCoverImage(game, coverEl, imgEl) {
+  const LOCAL_COVERS = {
+    "Super Cat Mario": "cat mario.png",
+    "cat ping pong": "cat ping pong.png",
+    "circle the cat game": "circle the cat.png",
+    "catch the cat": "catch the cat.png",
+    "whack a cat": "whack a cat.png",
+    "cat-o-licious": "cat-o-licious.png",
+    "Meo Match": "me-match.png",
+  };
+
+  const file = LOCAL_COVERS[game.name] || "cat-o-licious.png"; // safe fallback
+  imgEl.src = file;
   imgEl.alt = game.name + " cover";
   coverEl.classList.add("has-photo");
-  
-  console.log(` Set cat image for ${game.name}:`, catImage);
 }
 
 function slugify(text) {
@@ -162,40 +143,13 @@ function renderGrid() {
   els.grid.setAttribute("aria-busy", "false");
 }
 
-function openPreview(game) {
-  els.dialogTitle.textContent = game.name;
-  if (typeof els.previewDialog.showModal === "function") {
-    els.previewDialog.showModal();
-  } else {
-    alert("Preview: " + game.name);
-  }
-}
-
-function wireDialog() {
-  els.previewDialog.addEventListener("click", (e) => {
-    const rect = els.previewDialog.getBoundingClientRect();
-    const inDialog =
-      rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-      rect.left <= e.clientX && e.clientX <= rect.left + rect.width;
-    if (!inDialog) els.previewDialog.close();
-  });
-  els.previewDialog.querySelectorAll('[data-action="close"]').forEach((btn) =>
-    btn.addEventListener("click", () => els.previewDialog.close())
-  );
-}
+// Preview dialog removed; Preview now opens a new tab
 
 function init() {
-  setTheme(getTheme());
   renderFilters();
   renderGrid();
-  
-  // Debug: log what we're trying to load
-  console.log("Cat-Emu initialized, attempting to load images...");
-
-  els.themeToggle.addEventListener("click", toggleTheme);
   els.search.addEventListener("input", (e) => { state.query = e.target.value; renderGrid(); });
   els.sort.addEventListener("change", (e) => { state.sort = e.target.value; renderGrid(); });
-  wireDialog();
 }
 
 document.addEventListener("DOMContentLoaded", init);
